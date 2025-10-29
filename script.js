@@ -1,106 +1,104 @@
-// script.js
 const phones = [
     {
         name: "iPhone 15",
         specs: {
-            antutu: 1500000,      // AnTuTu score (higher better)
-            battery: 20,          // Battery life in hours (higher better)
-            weight: 171,          // Weight in grams (lower better)
-            zoom: 2,              // Camera zoom factor (higher better)
-            refresh: 60           // Display refresh rate in Hz (higher better)
+            antutu: 1500000,     
+            battery: 20,        
+            weight: 171,        
+            zoom: 2,         
+            refresh: 60         
         }
     },
     {
         name: "Samsung Galaxy S23",
         specs: {
-            antutu: 1200000,      // AnTuTu score (higher better)
-            battery: 18,          // Battery life in hours (higher better)
-            weight: 168,          // Weight in grams (lower better)
-            zoom: 3,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 1200000,  
+            battery: 18,       
+            weight: 168,       
+            zoom: 3,            
+            refresh: 120        
         }
     },
     {
         name: "Google Pixel 8",
         specs: {
-            antutu: 1148000,      // AnTuTu score (higher better)
-            battery: 18,          // Battery life in hours (higher better)
-            weight: 187,          // Weight in grams (lower better)
-            zoom: 2,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 1148000,    
+            battery: 18,        
+            weight: 187,        
+            zoom: 2,           
+            refresh: 120         
         }
     },
     {
         name: "OnePlus 12",
         specs: {
-            antutu: 2100000,      // AnTuTu score (higher better)
-            battery: 22,          // Battery life in hours (higher better)
-            weight: 220,          // Weight in grams (lower better)
-            zoom: 3,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 2100000,   
+            battery: 22,      
+            weight: 220,      
+            zoom: 3,            
+            refresh: 120         
         }
     },
     {
         name: "Xiaomi 14",
         specs: {
-            antutu: 2000000,      // AnTuTu score (higher better)
-            battery: 20,          // Battery life in hours (higher better)
-            weight: 193,          // Weight in grams (lower better)
-            zoom: 3,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 2000000,  
+            battery: 20,         
+            weight: 193,        
+            zoom: 3,           
+            refresh: 120         
         }
     },
     {
         name: "iPhone 16 Pro",
         specs: {
-            antutu: 2056260,      // AnTuTu score (higher better)
-            battery: 28,          // Battery life in hours (higher better)
-            weight: 199,          // Weight in grams (lower better)
-            zoom: 5,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 2056260,    
+            battery: 28,        
+            weight: 199,       
+            zoom: 5,           
+            refresh: 120        
         }
     },
     {
         name: "Samsung Galaxy S24 Ultra",
         specs: {
-            antutu: 1918239,      // AnTuTu score (higher better)
-            battery: 26,          // Battery life in hours (higher better)
-            weight: 232,          // Weight in grams (lower better)
-            zoom: 5,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 1918239,    
+            battery: 26,       
+            weight: 232,          
+            zoom: 5,          
+            refresh: 120         
         }
     },
     {
         name: "Google Pixel 9 Pro",
         specs: {
-            antutu: 1125355,      // AnTuTu score (higher better)
-            battery: 22,          // Battery life in hours (higher better)
-            weight: 199,          // Weight in grams (lower better)
-            zoom: 5,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 1125355,    
+            battery: 22,        
+            weight: 199,     
+            zoom: 5,          
+            refresh: 120 
         }
     },
     {
         name: "Nothing Phone (2)",
         specs: {
-            antutu: 1200612,      // AnTuTu score (higher better)
-            battery: 23,          // Battery life in hours (higher better)
-            weight: 201,          // Weight in grams (lower better)
-            zoom: 2,              // Camera zoom factor (higher better)
-            refresh: 120          // Display refresh rate in Hz (higher better)
+            antutu: 1200612,   
+            battery: 23,      
+            weight: 201,         
+            zoom: 2,            
+            refresh: 120        
         }
     },
     {
         name: "Motorola Edge 50 Pro",
         specs: {
-            antutu: 807658,      // AnTuTu score (higher better)
-            battery: 23,          // Battery life in hours (higher better)
-            weight: 186,          // Weight in grams (lower better)
-            zoom: 3,              // Camera zoom factor (higher better)
-            refresh: 144          // Display refresh rate in Hz (higher better)
+            antutu: 807658,   
+            battery: 23,         
+            weight: 186,         
+            zoom: 3,          
+            refresh: 144        
         }
     }
-    // Add more phones here in the future with the same spec structure
 ];
 
 const specTypes = {
@@ -109,14 +107,12 @@ const specTypes = {
     weight: 'lower',
     zoom: 'higher',
     refresh: 'higher'
-    // Add more specs and their types as needed
 };
 
-const perSpecBetter = 18;  // Even, not round (changed from 20)
-const perSpecWorse = 8;    // Even, not round (changed from 10)
-const perSpecEqual = 13;   // Average, though odd to keep balance
+const perSpecBetter = 18;
+const perSpecWorse = 8;   
+const perSpecEqual = 13;  
 
-// Populate dropdowns with available phones
 function populateSelects() {
     const options = phones.map(phone => `<option value="${phone.name}">${phone.name}</option>`).join('');
     document.getElementById('phone1').innerHTML = options;
@@ -148,11 +144,11 @@ function comparePhones() {
         const val1 = phone1.specs[spec];
         const val2 = phone2.specs[spec];
         
-        if (val1 === undefined || val2 === undefined) return;  // Skip if spec missing
+        if (val1 === undefined || val2 === undefined) return; 
         
         const type = specTypes[spec];
         const diff = Math.abs(val1 - val2);
-        let unit = '';  // Can customize units per spec if needed
+        let unit = ''; 
         
         if (spec === 'antutu') unit = 'points';
         else if (spec === 'battery') unit = 'hours';
@@ -178,16 +174,14 @@ function comparePhones() {
         }
     });
     
-    // Highlight scores - only green for winner
     let class1 = 'score';
     let class2 = 'score';
     if (score1 > score2) {
-        class1 += ' score1'; // Green for winner
+        class1 += ' score1'; 
     } else if (score2 > score1) {
-        class2 += ' score1'; // Green for winner
+        class2 += ' score1'; 
     }
     
-    // Max possible per phone is number_of_specs * perSpecBetter (e.g., 5 * 18 = 90), but keeping /100 for display
     const resultHtml = `
         <h3>Scores:</h3>
         <p class="${class1}">${phone1.name}: ${score1}/100</p>
@@ -200,5 +194,6 @@ function comparePhones() {
     setTimeout(() => {
         resultDiv.innerHTML = resultHtml;
         resultDiv.classList.add('show');
-    }, 500);  // Increased timeout to allow fade out (0.5s transition)
+    }, 500);  
+
 }
