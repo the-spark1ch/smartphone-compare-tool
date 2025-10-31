@@ -1,0 +1,153 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(90deg, red 0%, blue 25%, red 50%, blue 75%, red 100%);
+    background-size: 200% 100%;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 30px;
+    transform: translateX(-100%);
+    animation: slideInLeft 1.5s ease-in-out forwards, shimmer 15s linear infinite;
+}
+
+@keyframes slideInLeft {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -100% 0%;
+    }
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    transform: translateX(100%);
+    animation: slideInRight 1.5s ease-in-out forwards;
+}
+
+@keyframes slideInRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+#search-input {
+    padding: 15px;
+    width: 400px;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+}
+
+#search-input::placeholder {
+    font-family: 'Inter', sans-serif;
+    color: #aaa;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    border: 1px solid #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+button[type="submit"]:hover {
+    background-color: #444;
+}
+
+.engines {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideInUp 1.5s ease-in-out 0.5s forwards;
+}
+
+@keyframes slideInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.engine-btn {
+    padding: 10px 20px;
+    background-color: #222;
+    border: 1px solid #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.engine-btn:hover {
+    background-color: #333;
+}
+
+.engine-btn.active {
+    background-color: #444;
+    border-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #888;
+    font-size: 0.8rem;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+footer p {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
