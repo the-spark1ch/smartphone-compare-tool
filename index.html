@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Compare Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>TechCompare</h1>
+            <p>Сравни характеристики и узнай, кто победитель</p>
+        </header>
+        
+        <div class="comparison-controls">
+            <div class="select-group">
+                <label for="phone1">Смартфон 1</label>
+                <div class="select-wrapper">
+                    <select id="phone1"></select>
+                </div>
+            </div>
+            
+            <div class="vs-badge">VS</div>
+            
+            <div class="select-group">
+                <label for="phone2">Смартфон 2</label>
+                <div class="select-wrapper">
+                    <select id="phone2"></select>
+                </div>
+            </div>
+        </div>
+        
+        <button onclick="comparePhones()" class="action-btn">Сравнить устройства</button>
+        
+        <div id="result" class="result-container"></div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

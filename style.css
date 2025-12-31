@@ -1,0 +1,256 @@
+:root {
+    /* Светлая тема */
+    --bg-color: #f5f7fa; /* Светло-серый фон страницы */
+    --card-bg: #ffffff; /* Белый фон карточек */
+    --primary: #3b82f6; /* Синий (оставил прежним, хорошо смотрится) */
+    --accent: #8b5cf6;  /* Фиолетовый (оставил прежним) */
+    --text-main: #212529; /* Почти черный текст */
+    --text-muted: #868e96; /* Серый текст */
+    --border: #e9ecef;    /* Светлая граница */
+    --success: #22c55e;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    /* Градиент для заголовка можно оставить или сделать просто темным */
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+/* Controls */
+.comparison-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--card-bg);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+    /* Небольшая тень для светлой темы для объема */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.select-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.select-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--bg-color); /* Немного серее, чем фон карточки */
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:hover {
+     border-color: #cbd5e1;
+}
+
+select:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.vs-badge {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    font-weight: 800;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    z-index: 2;
+}
+
+/* Button */
+.action-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+}
+
+.action-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+/* Results */
+.result-container {
+    margin-top: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.result-container.show {
+    display: flex;
+}
+
+.score-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.phone-score {
+    text-align: center;
+    flex: 1;
+}
+
+.phone-score h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.big-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.winner { color: var(--success); }
+.loser { color: var(--text-muted); }
+
+/* Specs Comparison */
+.specs-list {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px; /* Чуть больше внутренний отступ */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.spec-item {
+    /* Увеличено расстояние между блоками характеристик */
+    margin-bottom: 35px;
+}
+
+.spec-item:last-child {
+    margin-bottom: 0;
+}
+
+.spec-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Чуть больше отступ от заголовка до значений */
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Обёртка для полосок, чтобы задать расстояние между ними через gap */
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Расстояние между синей и фиолетовой полоской */
+}
+
+.bar-container {
+    display: flex;
+    height: 10px; /* Чуть толще полоски для светлой темы */
+    background: var(--bg-color); /* Цвет пустой части полоски */
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bar-1 { background-color: var(--primary); }
+.bar-2 { background-color: var(--accent); }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+    .comparison-controls {
+        flex-direction: column;
+    }
+    .vs-badge {
+        margin: -10px 0;
+    }
+    body {
+        padding: 20px 10px;
+    }
+}
