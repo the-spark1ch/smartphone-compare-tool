@@ -1,4 +1,3 @@
-// script.js
 const phones = [
     {
         name: "iPhone 15",
@@ -185,4 +184,5 @@ function comparePhones() {
         resultDiv.innerHTML = resultHtml;
         resultDiv.classList.add('show');
     }, 50); 
+
 }
